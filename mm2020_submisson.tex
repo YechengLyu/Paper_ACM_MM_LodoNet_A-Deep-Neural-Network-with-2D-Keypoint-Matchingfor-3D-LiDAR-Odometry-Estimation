@@ -305,14 +305,14 @@ To summarize, our main contributions are:
 \begin{figure*}[t!]
 \setlength{\belowcaptionskip}{-0.1cm} 
      \centering
-     \begin{subfigure}[t]{0.25\textwidth}
+     \begin{subfigure}[t]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/matching1.png}
          \captionsetup{font={small}} 
          \caption{}
          \label{fig:matching a}
      \end{subfigure}
-     \begin{subfigure}[t]{0.25\textwidth}
+     \begin{subfigure}[t]{0.3\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/matching2.png}
          \captionsetup{font={small}} 
@@ -320,7 +320,7 @@ To summarize, our main contributions are:
          \label{fig:matching b}
      \end{subfigure}
      
-        \caption{Illustration of MKPs detected by our methods. (a): The point cloud of $i+1$'s LiDAR scan, blue points are the keypoints detected by SIFT on the coordinate frame of  $i+1$'s scan. (b): Black points are the MKPs of the blue points from the $i's$ scan and projected to the $i+1's$ coordinate frame. The black points are expected to overlap to their paired blue points since they are match points projected to the same coordinate frame. Lines are aligned for each matched pair (blue point and paired black point). Here these lines are invisible because of overlapping. }
+        \caption{\footnotesize {Illustration of MKPs detected by our methods. (a): The point cloud of $i+1$'s LiDAR scan, blue points are the keypoints detected by SIFT on the coordinate frame of  $i+1$'s scan. (b): Black points are the MKPs of the blue points from the $i's$ scan and projected to the $i+1's$ coordinate frame. The black points are expected to overlap to their paired blue points since they are match points projected to the same coordinate frame. Lines are aligned for each matched pair (blue point and paired black point). Here these lines are invisible because of overlapping. }}
         \label{fig:matching3D}
 \end{figure*}
 
@@ -329,8 +329,9 @@ To summarize, our main contributions are:
 
 \begin{figure*}[h]
   \centering
-  \includegraphics[height=0.32\textwidth]{Figures/network.png}
-  \caption{\lodo{} Architecture:Depth spherical images of the LiDAR point clouds can be obtained by the projection procedure. The matching keypint pairs (MKPs) is extracted by the feature extraction algoritm:SIFT on the depth images than projected back to 3D LiDAR space. The MKPs Selection Module takes $n$ MKPs of consecutive scans as input. It can generate a Ranking Matrix $[n, 1]$ of the input $n$ MKPs, then we choose the best $k$ MKPs by their ranking as the input for rotation and translation estimation. The Rotation Estimation Module and Translation Estimation Module predict the rotation pose and translation pose respectively.Dotted line indicate two blocks are identical.}
+  \includegraphics[width=0.99\textwidth]{Figures/network.png}
+  \vspace{-1em}
+  \caption{\footnotesize{\lodo{} Architecture:Depth spherical images of the LiDAR point clouds can be obtained by the projection procedure. The matching keypint pairs (MKPs) is extracted by the feature extraction algoritm:SIFT on the depth images than projected back to 3D LiDAR space. The MKPs Selection Module takes $n$ MKPs of consecutive scans as input. It can generate a Ranking Matrix $[n, 1]$ of the input $n$ MKPs, then we choose the best $k$ MKPs by their ranking as the input for rotation and translation estimation. The Rotation Estimation Module and Translation Estimation Module predict the rotation pose and translation pose respectively.Dotted line indicate two blocks are identical.}}
   \label{fig:network}
 \end{figure*}
 
@@ -415,13 +416,13 @@ The constraint here models the MKPs as the stationary solution given current $h$
 \begin{align}
 \small
     \begin{bmatrix}
-        \alpha\\
-        \beta\\
-        \gamma\\
-        b_1\\
-        b_2\\
+        \alpha,
+        \beta,
+        \gamma,
+        b_1,
+        b_2,
         b_3
-    \end{bmatrix}=-\left[\sum_i\mathbf{Q}_i\right]^{-1}\sum_i\mathbf{q}_i
+    \end{bmatrix}^\top=-\left[\sum_i\mathbf{Q}_i\right]^{-1}\sum_i\mathbf{q}_i
 \end{align}
 
 
@@ -459,7 +460,7 @@ Different from ICP-based learning approaches, here we use a predefined keypoint 
          \label{fig:spherical a}
      \end{subfigure}
     
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.95\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/spherical image b.png}
          \captionsetup{font={scriptsize}} 
@@ -467,7 +468,7 @@ Different from ICP-based learning approaches, here we use a predefined keypoint 
          \label{fig:spherical b}
      \end{subfigure}
      
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.95\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/spherical image c.png}
          \captionsetup{font={scriptsize}} 
@@ -476,7 +477,7 @@ Different from ICP-based learning approaches, here we use a predefined keypoint 
      \end{subfigure}
      
 
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.95\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/spherical image d.png}
          \captionsetup{font={scriptsize}} 
@@ -484,7 +485,7 @@ Different from ICP-based learning approaches, here we use a predefined keypoint 
          \label{fig:spherical d}
      \end{subfigure}
      
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.95\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/spherical image e.png}
          \captionsetup{font={scriptsize}} 
@@ -549,7 +550,7 @@ Given a keypoint from depth completion image  $f_i$, we want to find the best ma
 
 \begin{figure*}[h]
      \centering
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.9\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/MKP a.png}
          \captionsetup{font={small}} 
@@ -557,14 +558,14 @@ Given a keypoint from depth completion image  $f_i$, we want to find the best ma
         %  \label{fig:spherical b}
      \end{subfigure}
 
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.9\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/MKP b.png}
          \captionsetup{font={small}} 
          \caption{Top 400 MKPs detected by SIFT}
      \end{subfigure}
      
-     \begin{subfigure}[b]{0.8\textwidth}
+     \begin{subfigure}[b]{0.9\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/MKP c.png}
          \captionsetup{font={small}} 
